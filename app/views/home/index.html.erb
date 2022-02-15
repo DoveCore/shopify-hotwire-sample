@@ -15,4 +15,20 @@
       <% end %>
     <% end %>
   <% end %>
+
+  <%= polaris_card(title: "Fullpage redirect") do %>
+    <%= polaris_button(url: redirect_path) { "Shopify.dev" } %>
+  <% end %>
+
+  <%= polaris_card(title: "Fullpage redirect (frame)") do %>
+    <%= turbo_frame_tag :redirect, target: "_top" do %>
+      <%= polaris_button(url: redirect_path) { "Shopify.dev" } %>
+    <% end %>
+  <% end %>
+
+  <%= polaris_card(title: "Fullpage redirect (form)") do %>
+    <%= form_with url: redirect_path, method: :get do %>
+      <%= polaris_button(submit: true) { "Submit" } %>
+    <% end %>
+  <% end %>
 <% end %>
